@@ -1,3 +1,7 @@
+# Astralix Tech Store
+An ecommerce application made with React for the front end and [Sanity](https://www.sanity.io/) (an online CMS)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
