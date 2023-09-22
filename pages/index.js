@@ -1,8 +1,10 @@
 import React from 'react'
 
+import { createClient } from 'next-sanity';
+import imageUrlBuilder from '@sanity/image-url';
 import { Product, FooterBanner, HeroBanner } from '../components';
 
-const Home = () => {
+const Home = ({ products, bannerData }) => {
   return (
     <>
       <HeroBanner />
@@ -13,7 +15,7 @@ const Home = () => {
       </div>
 
       <div className="products-container">
-        {['Product 1', 'Product 2'].map((product) => product)}
+        {products?.map((product) => product.name)}
       </div>
 
       <FooterBanner />
@@ -21,4 +23,27 @@ const Home = () => {
   )
 }
 
-export default Home
+const client = createClient({
+  projectId: 'cu9xfwto',
+  dataset: 'production',
+  apiVersion: '2023-09-22',
+  useCdn: true,
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN
+});
+
+export const getServerSideProps = async () => {
+  const products = await client.fetch(`*[_type == "product"]`);
+  const bannerData = await client.fetch(`*[_type == "banner"]`);
+
+  return {
+    props: { products, bannerData }
+  }
+}
+
+const builder = imageUrlBuilder(client)
+
+function urlFor(source) {
+    return builder.image(source)
+}
+
+export default Home;
