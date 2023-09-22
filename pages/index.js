@@ -23,6 +23,7 @@ const Home = ({ products, bannerData }) => {
   )
 }
 
+// sanity client connection
 const client = createClient({
   projectId: 'cu9xfwto',
   dataset: 'production',
@@ -40,6 +41,7 @@ export const getServerSideProps = async () => {
   }
 }
 
+// image builder to style images
 const builder = imageUrlBuilder(client)
 
 function urlFor(source) {
