@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { createClient } from 'next-sanity';
-import imageUrlBuilder from '@sanity/image-url';
+import { client } from '../lib/client';
 import { Product, FooterBanner, HeroBanner } from '../components';
 
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      {console.log(bannerData)}
 
       <div className="products-heading">
         <h2>Best Selling Products</h2>
@@ -23,15 +23,6 @@ const Home = ({ products, bannerData }) => {
   )
 }
 
-// sanity client connection
-const client = createClient({
-  projectId: 'cu9xfwto',
-  dataset: 'production',
-  apiVersion: '2023-09-22',
-  useCdn: true,
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN
-});
-
 export const getServerSideProps = async () => {
   const products = await client.fetch(`*[_type == "product"]`);
   const bannerData = await client.fetch(`*[_type == "banner"]`);
@@ -39,13 +30,6 @@ export const getServerSideProps = async () => {
   return {
     props: { products, bannerData }
   }
-}
-
-// image builder to style images
-const builder = imageUrlBuilder(client)
-
-function urlFor(source) {
-    return builder.image(source)
 }
 
 export default Home;
