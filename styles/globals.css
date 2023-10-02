@@ -573,6 +573,7 @@ span.text-red {
   width: 200px;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  user-select: none;
 }
 
 .buttons .add-to-cart:hover {
@@ -592,6 +593,7 @@ span.text-red {
   cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  user-select: none;
 }
 
 .buttons .buy-now:hover {
@@ -617,6 +619,7 @@ span.text-red {
 .quantity-desc .num {
   border-right: 1px solid gray;
   font-size: 20px;
+  user-select: none;
 }
 
 .quantity-desc .plus {
@@ -816,10 +819,12 @@ span.text-red {
 
   .buttons .add-to-cart {
     width: 150px;
+    user-select: none;
   }
 
   .buttons .buy-now {
     width: 150px;
+    user-select: none;
   }
 
   .product-detail-container {
