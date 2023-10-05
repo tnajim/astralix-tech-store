@@ -8,7 +8,7 @@ import { useStateContext } from "@/context/StateContext";
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty } = useStateContext();
+  const { decQty, incQty, qty, onAdd } = useStateContext(); // get react usestate functions from StateContext
 
   return (
     <div>
@@ -48,7 +48,7 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick="">Add to Cart</button>
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick="">Buy Now</button>
           </div>
         </div>
@@ -82,6 +82,7 @@ export async function getStaticPaths() {
   }
 }
 
+// get data from sanity using the url params slug
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = `*[_type == "product"]`;
