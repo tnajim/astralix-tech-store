@@ -321,7 +321,15 @@ span.text-red {
   float: right;
   padding: 40px 10px;
   position: relative;
+}
 
+.no-scrollbars {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.no-scrollbars::-webkit-scrollbar {
+  display: none;
 }
 
 .footer-container {
@@ -839,8 +847,6 @@ span.text-red {
   .top {
     flex-wrap: wrap;
     gap: 10px;
-
-
   }
 
   .item-desc .bottom {
