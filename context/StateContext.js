@@ -36,18 +36,17 @@ export const StateContext = ({ children }) => {
 
     // find which item to change quantity then change
     const toggleCartItemQuantity = (id, value) => {
-        foundProduct = cartItems.find((item) => item._id === id)
-        index = cartItems.findIndex((product) => product._id === id)
-        const newCartItems = cartItems.filter((item) => item._id !== id);
+        foundProduct = cartItems.find((item) => item._id === id);
+        index = cartItems.findIndex((product) => product._id === id);
 
         if (value === "inc") {
-            // spread product with new quantity into cartItems
-            setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }]);
+            // map over to the selected item, then duplicate and add quantity
+            setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity + 1 } : item));
             setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
             setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
         } else if (value === "dec") {
             if (foundProduct.quantity > 1) {
-                setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }]);
+                setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity - 1 } : item));
                 setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
                 setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
             }
