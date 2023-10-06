@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -10,11 +10,25 @@ import { urlFor } from "@/lib/client";
 
 const Cart = () => {
   const cartRef = useRef();
+  const cartContainerRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity } = useStateContext();
+
+  // closes cart when clicked off
+  useEffect(() => {
+    let handler = (e) => {
+      if (!cartContainerRef.current.contains(e.target)) {
+        setShowCart(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    }
+  })
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
+      <div className="cart-container" ref={cartContainerRef}>
         <button type="button" className="cart-heading" onClick={() => setShowCart(false)}>
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
