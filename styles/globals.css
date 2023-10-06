@@ -627,12 +627,15 @@ span.text-red {
 .quantity-desc .num {
   border-right: 1px solid gray;
   font-size: 20px;
-  user-select: none;
 }
 
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
 
+}
+
+.quantity-desc .minus, .num, .plus {
+  user-select: none;
 }
 
 .maylike-products-wrapper {
