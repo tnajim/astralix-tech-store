@@ -75,8 +75,16 @@ span.text-red {
 
 .logo {
   color: gray;
-  font-size: 18px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
 
+.logo img {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  margin-right: 5px;
+  top: 3px;
 }
 
 .cart-icon {
@@ -634,7 +642,9 @@ span.text-red {
 
 }
 
-.quantity-desc .minus, .num, .plus {
+.quantity-desc .minus,
+.num,
+.plus {
   user-select: none;
 }
 
