@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className="navbar-container">
       <p className="logo">
         <Link href="/">
-          <img src="favicon.ico" alt="logo" />
+          <img src="astralix-logo-image.png" alt="logo" />
           Astralix</Link>
       </p>
 
