@@ -95,6 +95,10 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
 
+  // it works but not in the cart???
+  // const pricecheck = await client.fetch(`*[_type == "product" && _id == '7ff95c39-b4f6-4d9b-949e-351cb6de0073']`);
+  // console.log(pricecheck)
+
   return {
     props: { product, products }
   }
