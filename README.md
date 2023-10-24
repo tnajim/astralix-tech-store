@@ -1,5 +1,5 @@
 # Astralix Tech Store
-An ecommerce application made with [React](https://react.dev/) for the front end, [Sanity](https://www.sanity.io/) for the data, and [Stripe](https://stripe.com/) for payments
+An ecommerce application made with [React](https://react.dev/) and [Next.js](https://nextjs.org/) for the front end, [Sanity](https://www.sanity.io/) for the data, and [Stripe](https://stripe.com/) for payments
 
 ![homepage](https://github.com/tnajim/astralix-tech-store/assets/47018694/947d4d80-3740-4a70-9c03-7648874900c7)
 
