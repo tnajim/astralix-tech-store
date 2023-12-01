@@ -179,6 +179,11 @@ span.text-red {
   font-weight: 500;
   cursor: pointer;
   z-index: 10000 !important;
+  transition: background-color 0.3s ease;
+}
+
+.hero-banner-container button:hover {
+  background-color: #c7262b;
 }
 
 .hero-banner-container h3 {
@@ -272,6 +277,11 @@ span.text-red {
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner-desc button:hover {
+  background-color: #cccccc;
 }
 
 .banner-desc .left h3 {
