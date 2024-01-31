@@ -1,10 +1,9 @@
 # Astralix Tech Store
 An ecommerce application made with [React](https://react.dev/) and [Next.js](https://nextjs.org/) for the front end, [Sanity](https://www.sanity.io/) (CMS) for the data, and [Stripe](https://stripe.com/) for payments
 
+### Live Website Link: [Astralix Tech Store](https://astralix-tech-store.vercel.app/)
+
 ![homepage](https://github.com/tnajim/astralix-tech-store/assets/47018694/947d4d80-3740-4a70-9c03-7648874900c7)
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Running the project locally (personal guide)
 
@@ -37,10 +36,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ### Stripe Payments Dashboard
 ![stripe-payments](https://github.com/tnajim/astralix-tech-store/assets/47018694/deed4d49-1fcc-4c17-91f2-97c52942dbb0)
 
-
-# Live Project Link
-
-TBA
 
 # to do:
 - fix possible token leak in client-side javascript
